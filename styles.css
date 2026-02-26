@@ -100,6 +100,15 @@ body {
     width: 100%;
     height: 100%;
     flex: 1;
+    display: flex;
+}
+
+.pdf-iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    background-color: #ffffff; /* Prevents dark background from showing through */
+    min-height: 80vh;
 }
 
 .fallback-message {
