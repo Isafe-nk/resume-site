@@ -267,6 +267,7 @@ body {
 .typewriter-container {
     display: flex;
     align-items: center;
+    justify-content: flex-start; /* Default for desktop */
 }
 
 #typewriter-text {
@@ -454,6 +455,10 @@ body {
     .hero-content h1 {
         font-size: 3rem;
     }
+    
+    .typewriter-container {
+        justify-content: center; /* Center align typewriter on mobile */
+    }
 
     .social-links {
         justify-content: center;
@@ -463,9 +468,9 @@ body {
         justify-content: center;
     }
 
-    /* Hide large decorative elements on mobile to prevent clutter */
-    .floating-element {
-        display: none;
+    /* Hide ALL large decorative elements on mobile and tablets to prevent clutter */
+    .floating-element, .float-1, .float-2, .float-3 {
+        display: none !important;
     }
 
     /* Reduce background intensity on mobile */
