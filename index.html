@@ -47,6 +47,52 @@
             <p>&copy; 2026 Lim Ker Yew. All rights reserved.</p>
         </footer>
     </div>
+
+    <script>
+        const roles = [
+            "Software Engineer",
+            "Generative AI Architect",
+            "Full-Stack Developer",
+            "Autonomous Agents Builder",
+            "Fintech Innovator"
+        ];
+
+        const typeText = document.getElementById('typewriter-text');
+
+        let roleIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+
+        function typeEffect() {
+            const currentRole = roles[roleIndex];
+
+            if (isDeleting) {
+                typeText.textContent = currentRole.substring(0, charIndex - 1);
+                charIndex--;
+            } else {
+                typeText.textContent = currentRole.substring(0, charIndex + 1);
+                charIndex++;
+            }
+
+            let typeSpeed = isDeleting ? 40 : 100;
+
+            if (!isDeleting && charIndex === currentRole.length) {
+                typeSpeed = 2500; // Pause at end of word
+                isDeleting = true;
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                roleIndex = (roleIndex + 1) % roles.length;
+                typeSpeed = 500; // Pause before new word
+            }
+
+            setTimeout(typeEffect, typeSpeed);
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            // Give a short delay before typing starts
+            setTimeout(typeEffect, 800);
+        });
+    </script>
 </body>
 
 </html>
