@@ -224,7 +224,7 @@ body {
 
 /* Resume Section Update */
 .resume-section {
-    padding: 6rem 0;
+    padding: 2rem 0;
     width: 100%;
 }
 
@@ -262,7 +262,7 @@ body {
 .resume-viewer {
     display: flex;
     flex-direction: column;
-    min-height: 90vh;
+    min-height: 120vh;
 }
 
 .pdf-container {
@@ -277,7 +277,7 @@ body {
     height: 100%;
     border: none;
     background-color: #ffffff; /* Prevents dark background from showing through */
-    min-height: 80vh;
+    min-height: 120vh;
 }
 
 .fallback-message {
