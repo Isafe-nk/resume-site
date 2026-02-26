@@ -13,10 +13,19 @@
 </head>
 
 <body>
-    <div class="container">
+    <!-- Animated Background Elements -->
+    <div class="bg-shape shape-1"></div>
+    <div class="bg-shape shape-2"></div>
+    <div class="bg-shape shape-3"></div>
+
+    <div class="container relative-z">
         <header class="hero-section">
             <div class="hero-content">
                 <div class="hero-text">
+                    <div class="status-badge">
+                        <span class="status-dot"></span>
+                        <span class="status-text">Available for new opportunities</span>
+                    </div>
                     <p class="greeting">Hi, I'm</p>
                     <h1>Lim Ker Yew</h1>
                     <div class="roles-wrapper">
@@ -44,11 +53,22 @@
                         <i class="fas fa-download mr-2"></i> Download Resume
                     </a>
                 </div>
+
+                <!-- Decorative Elements -->
+                <div class="floating-element float-1">
+                    <i class="fas fa-code"></i>
+                </div>
+                <div class="floating-element float-2">
+                    <i class="fas fa-brain"></i>
+                </div>
+                <div class="floating-element float-3">
+                    <i class="fas fa-robot"></i>
+                </div>
             </div>
         </header>
 
-        <main id="resume-view" class="resume-section">
-            <div class="resume-viewer glass-panel">
+        <main id="resume-view" class="resume-section relative-z">
+            <div class="resume-viewer glass-panel tilt-effect">
                 <div class="pdf-container">
                     <iframe src="resume.pdf" class="pdf-iframe" title="Resume PDF">
                         <div class="fallback-message">

@@ -26,9 +26,56 @@ body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    background-image: 
-        radial-gradient(circle at 15% 50%, rgba(59, 130, 246, 0.05), transparent 25%),
-        radial-gradient(circle at 85% 30%, rgba(52, 211, 153, 0.05), transparent 25%);
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* Dynamic Animated Background */
+.bg-shape {
+    position: absolute;
+    filter: blur(80px);
+    z-index: 0;
+    opacity: 0.5;
+    animation: float-bg 20s infinite alternate;
+}
+
+.shape-1 {
+    top: -10%;
+    left: -10%;
+    width: 50vw;
+    height: 50vw;
+    background: radial-gradient(circle, rgba(59, 130, 246, 0.15) 0%, transparent 70%);
+    animation-delay: 0s;
+}
+
+.shape-2 {
+    bottom: -10%;
+    right: -10%;
+    width: 60vw;
+    height: 60vw;
+    background: radial-gradient(circle, rgba(52, 211, 153, 0.1) 0%, transparent 70%);
+    animation-delay: -5s;
+}
+
+.shape-3 {
+    top: 40%;
+    left: 40%;
+    width: 40vw;
+    height: 40vw;
+    background: radial-gradient(circle, rgba(139, 92, 246, 0.1) 0%, transparent 70%);
+    animation-delay: -10s;
+}
+
+@keyframes float-bg {
+    0% { transform: translate(0, 0) scale(1); }
+    33% { transform: translate(5%, 5%) scale(1.1); }
+    66% { transform: translate(-2%, 8%) scale(0.9); }
+    100% { transform: translate(0, 0) scale(1); }
+}
+
+.relative-z {
+    position: relative;
+    z-index: 10;
 }
 
 .container {
@@ -52,6 +99,44 @@ body {
 
 .hero-content {
     max-width: 800px;
+    position: relative;
+    width: 100%;
+}
+
+/* Status Badge */
+.status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: rgba(52, 211, 153, 0.1);
+    border: 1px solid rgba(52, 211, 153, 0.2);
+    border-radius: 2rem;
+    margin-bottom: 2rem;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+    background-color: #34d399;
+    border-radius: 50%;
+    box-shadow: 0 0 10px #34d399;
+    animation: status-pulse 2s infinite;
+}
+
+.status-text {
+    color: #34d399;
+    font-size: 0.875rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+}
+
+@keyframes status-pulse {
+    0% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.6; transform: scale(1.2); }
+    100% { opacity: 1; transform: scale(1); }
 }
 
 .greeting {
@@ -125,6 +210,58 @@ body {
     gap: 1rem;
     align-items: center;
     flex-wrap: wrap;
+    position: relative;
+    z-index: 2;
+}
+
+/* Decorative Floating Elements */
+.floating-element {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    border-radius: 16px;
+    background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.02));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.1);
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    z-index: 1;
+    animation: float 6s ease-in-out infinite;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+.float-1 {
+    top: 5%;
+    right: 5%;
+    animation-delay: 0s;
+    color: #60a5fa;
+    transform: rotate(15deg);
+}
+
+.float-2 {
+    bottom: 20%;
+    right: 15%;
+    animation-delay: 2s;
+    color: #34d399;
+    transform: rotate(-10deg);
+}
+
+.float-3 {
+    top: 30%;
+    left: -10%;
+    animation-delay: 4s;
+    color: #a78bfa;
+    transform: rotate(25deg);
+}
+
+@keyframes float {
+    0% { transform: translateY(0px) rotate(auto); }
+    50% { transform: translateY(-15px) rotate(auto); }
+    100% { transform: translateY(0px) rotate(auto); }
 }
 
 .typewriter-container {
@@ -229,14 +366,26 @@ body {
 }
 
 .glass-panel {
-    background: var(--surface-color);
+    background: linear-gradient(145deg, rgba(30, 33, 40, 0.8) 0%, rgba(20, 22, 28, 0.9) 100%);
     border-radius: 1.5rem;
     overflow: hidden;
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    border: 1px solid var(--surface-border);
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    border-left: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 
+        0 25px 50px -12px rgba(0, 0, 0, 0.6),
+        0 0 40px rgba(59, 130, 246, 0.1);
     height: 100%; /* Fill the wrapper */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tilt-effect:hover {
+    transform: translateY(-5px) scale(1.01);
+    box-shadow: 
+        0 30px 60px -15px rgba(0, 0, 0, 0.7),
+        0 0 50px rgba(59, 130, 246, 0.15);
 }
 
 .resume-viewer {
