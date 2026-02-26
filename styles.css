@@ -399,6 +399,8 @@ body {
     flex: 1;
     display: flex;
     height: 100%;
+    -webkit-overflow-scrolling: touch; /* Crucial for scrolling PDFs on iOS inside iframes */
+    overflow: auto;
 }
 
 .pdf-iframe {
@@ -459,6 +461,16 @@ body {
 
     .hero-actions {
         justify-content: center;
+    }
+
+    /* Hide large decorative elements on mobile to prevent clutter */
+    .floating-element {
+        display: none;
+    }
+
+    /* Reduce background intensity on mobile */
+    .bg-shape {
+        opacity: 0.2;
     }
 }
 
