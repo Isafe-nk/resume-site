@@ -54,8 +54,35 @@ body {
 
 .header-content p {
     color: var(--text-secondary);
-    font-size: 1rem;
+    font-size: 1.125rem;
     margin-top: 0.25rem;
+    min-height: 1.75rem; /* prevents layout shift */
+}
+
+.typewriter-container {
+    display: flex;
+    align-items: center;
+}
+
+#typewriter-text {
+    background: linear-gradient(90deg, #60a5fa, #34d399); /* Beautiful blue to green gradient */
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 500;
+}
+
+.cursor {
+    display: inline-block;
+    color: var(--primary-color);
+    margin-left: 3px;
+    font-weight: 600;
+    animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
 }
 
 .btn {
