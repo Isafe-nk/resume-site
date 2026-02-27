@@ -133,13 +133,17 @@
             setTimeout(typeEffect, 800);
         });
 
-        // Force scroll to top on page load. Sometimes embedded iframes (like Google Docs viewer) 
-        // try to automatically steal focus and scroll the user down the page.
+        // Prevent browser from automatically restoring previous scroll position on refresh
+        if ('scrollRestoration' in history) {
+            history.scrollRestoration = 'manual';
+        }
+
+        // Force scroll to top instantly to prevent sudden FOUC-like jump
+        window.scrollTo(0, 0);
+
+        // Also ensure it stays at the top after rendering Google Docs iframe
         window.addEventListener('load', () => {
-            // A short timeout ensures this runs *after* the browser and iframe have settled
-            setTimeout(() => {
-                window.scrollTo({ top: 0, behavior: 'auto' });
-            }, 100);
+            window.scrollTo(0, 0);
         });
     </script>
 </body>
