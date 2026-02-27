@@ -469,9 +469,29 @@ body {
         justify-content: center;
     }
 
-    /* Hide ALL large decorative elements on mobile and tablets to prevent clutter */
-    .floating-element, .float-1, .float-2, .float-3 {
-        display: none !important;
+    /* Keep floating elements on mobile but make them subtle and out of the way */
+    .floating-element {
+        display: flex !important;
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+        opacity: 0.3; /* Very transparent so it doesn't block text */
+        z-index: 0;   /* Push behind the main text */
+    }
+
+    .float-1 {
+        top: 2%;
+        right: 2%;
+    }
+
+    .float-2 {
+        bottom: 10%;
+        right: 5%;
+    }
+
+    .float-3 {
+        top: 25%;
+        left: 2%;
     }
 
     /* Reduce background intensity on mobile */
