@@ -132,6 +132,15 @@
             // Give a short delay before typing starts
             setTimeout(typeEffect, 800);
         });
+
+        // Force scroll to top on page load. Sometimes embedded iframes (like Google Docs viewer) 
+        // try to automatically steal focus and scroll the user down the page.
+        window.addEventListener('load', () => {
+            // A short timeout ensures this runs *after* the browser and iframe have settled
+            setTimeout(() => {
+                window.scrollTo({ top: 0, behavior: 'auto' });
+            }, 100);
+        });
     </script>
 </body>
 
