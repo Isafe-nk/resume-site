@@ -485,7 +485,7 @@ body {
     }
 
     .float-2 {
-        bottom: 32%; /* Moved further up to completely clear the download button */
+        bottom: 24%; /* Moved further up to completely clear the download button */
         right: 5%;
     }
 
