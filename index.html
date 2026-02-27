@@ -70,6 +70,12 @@
         <main id="resume-view" class="resume-section relative-z">
             <div class="resume-viewer glass-panel tilt-effect">
                 <div class="pdf-container">
+                    <!-- Added an explicit download button here for better Android support just above the PDF -->
+                    <div class="mobile-pdf-header hidden-desktop">
+                        <a href="resume.pdf" download="Lim_Ker_Yew_Resume.pdf" class="btn primary-btn btn-small">
+                            <i class="fas fa-download mr-1"></i> Tap here to download PDF (Best for Mobile)
+                        </a>
+                    </div>
                     <iframe src="resume.pdf" class="pdf-iframe" title="Resume PDF">
                         <div class="fallback-message">
                             <p>It appears you don't have a PDF plugin for this browser.</p>
@@ -128,6 +134,14 @@
         document.addEventListener('DOMContentLoaded', () => {
             // Give a short delay before typing starts
             setTimeout(typeEffect, 800);
+
+            // Automatically smoothly scroll to the PDF reader explicitly on page load
+            setTimeout(() => {
+                const resumeView = document.getElementById('resume-view');
+                if (resumeView && window.scrollY < 100) { // Only auto-scroll if user hasn't already scrolled down manually
+                    resumeView.scrollIntoView({ behavior: 'smooth' });
+                }
+            }, 1200); // 1.2s delay gives user time to see the hero section briefly
         });
     </script>
 </body>

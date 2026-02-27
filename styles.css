@@ -399,9 +399,30 @@ body {
     width: 100%;
     flex: 1;
     display: flex;
+    flex-direction: column;
     height: 100%;
     -webkit-overflow-scrolling: touch; /* Crucial for scrolling PDFs on iOS inside iframes */
     overflow: auto;
+}
+
+.mobile-pdf-header {
+    display: flex;
+    justify-content: center;
+    padding: 1rem;
+    background: rgba(11, 14, 20, 0.95);
+    border-bottom: 1px solid var(--surface-border);
+    z-index: 5;
+}
+
+.btn-small {
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+    border-radius: 0.5rem;
+}
+
+/* Hide the mobile explicitly added elements on desktop sizes */
+.hidden-desktop {
+    display: none;
 }
 
 .pdf-iframe {
@@ -476,6 +497,11 @@ body {
     /* Reduce background intensity on mobile */
     .bg-shape {
         opacity: 0.2;
+    }
+
+    /* Show the mobile elements that were hidden on desktop */
+    .hidden-desktop {
+        display: flex;
     }
 }
 
