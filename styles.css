@@ -471,12 +471,12 @@ body {
 
     /* Keep floating elements on mobile but make them subtle and out of the way */
     .floating-element {
-        display: flex !important;
-        width: 40px;
-        height: 40px;
-        font-size: 1rem;
-        opacity: 0.3; /* Very transparent so it doesn't block text */
-        z-index: 0;   /* Push behind the main text */
+        display: flex !important; /* Force display */
+        width: 45px;
+        height: 45px;
+        font-size: 1.25rem;
+        opacity: 0.6 !important; /* Increase opacity so they are clearly visible */
+        z-index: 5 !important;   /* Force above the background so they don't get hidden under the rings */
     }
 
     .float-1 {
