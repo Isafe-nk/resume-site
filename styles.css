@@ -485,7 +485,7 @@ body {
     }
 
     .float-2 {
-        bottom: 10%;
+        bottom: 18%; /* Moved up from 10% */
         right: 5%;
     }
 
